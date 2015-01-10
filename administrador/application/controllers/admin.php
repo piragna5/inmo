@@ -236,6 +236,23 @@ function locales(){
             'direccion_municipio','direccion_estado','recamaras','banos','precio',
             'agua','drenaje','luz','contacto_telefono','descripcion');
         $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero');
+        $crud->display_as('banos','Baños');
+        $crud->display_as('venta_renta','Venta o Renta');
+        $crud->display_as('construccion_m2','Construccion en metros cuadrados');
+        $crud->display_as('terreno_m2','Terreno en metros cuadrados');
+        $crud->display_as('direccion_calle','Calle');
+        $crud->display_as('direccion_numero','Numero');
+        $crud->display_as('direccion_colonia','Colonia');
+        $crud->display_as('direccion_municipio','Municipio');
+        $crud->display_as('direccion_estado','Estado');
+        $crud->display_as('direccion_calle','Calle');
+        $crud->display_as('direccion_codigo_postal','Codigo Postal');
+        $crud->display_as('direccion_pais','Pais');
+        $crud->display_as('direccion_latitud','Latitud');
+        $crud->display_as('direccion_longitud','Longitud');
+        $crud->display_as('espacio_autos','Espacio para Autos');
+        $crud->display_as('contacto_telefono','Telefono');
+        $crud->display_as('contacto_email','Email');
         $crud->field_type('idlocal', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
         $crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
@@ -254,8 +271,29 @@ function nave_industrial(){
    {
     $crud = new grocery_CRUD();
         $crud->set_table('nave_industrial');
-        $crud->set_subject('Naves Industriales');
-        $crud->columns('precio','terreno_m2','construccion_m2');
+        $crud->set_subject('Nave Industrial');
+        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero');
+        $crud->required_fields('venta_renta','terreno_m2','construccion_m2','direccion_numero','direccion_calle','direccion_colonia',
+            'direccion_municipio','direccion_estado','recamaras','banos','precio',
+            'agua','drenaje','luz','contacto_telefono','descripcion');
+        $crud->display_as('banos','Baños');
+        $crud->display_as('venta_renta','Venta o Renta');
+        $crud->display_as('construccion_m2','Construccion en metros cuadrados');
+        $crud->display_as('terreno_m2','Terreno en metros cuadrados');
+        $crud->display_as('direccion_calle','Calle');
+        $crud->display_as('direccion_numero','Numero');
+        $crud->display_as('direccion_colonia','Colonia');
+        $crud->display_as('direccion_municipio','Municipio');
+        $crud->display_as('direccion_estado','Estado');
+        $crud->display_as('direccion_calle','Calle');
+        $crud->display_as('direccion_codigo_postal','Codigo Postal');
+        $crud->display_as('direccion_pais','Pais');
+        $crud->display_as('direccion_latitud','Latitud');
+        $crud->display_as('direccion_longitud','Longitud');
+        $crud->display_as('espacio_autos','Espacio para Autos');
+        $crud->display_as('contacto_telefono','Telefono');
+        $crud->display_as('contacto_email','Email');
+        $crud->display_as('patio_maniobras','Patio de Maniobras');
         $crud->field_type('idnave_industrial', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
         $crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
@@ -274,8 +312,28 @@ function rancho(){
    {
     $crud = new grocery_CRUD();
         $crud->set_table('rancho');
-        $crud->set_subject('Ranchos');
-        $crud->columns('precio','terreno_m2','construccion_m2');
+        $crud->set_subject('Rancho');
+        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero');
+        $crud->required_fields('venta_renta','terreno_m2','construccion_m2','direccion_numero','direccion_calle','direccion_colonia',
+            'direccion_municipio','direccion_estado','recamaras','banos','precio',
+            'agua','drenaje','luz','contacto_telefono','descripcion');
+        $crud->display_as('banos','Baños');
+        $crud->display_as('venta_renta','Venta o Renta');
+        $crud->display_as('construccion_m2','Construccion en metros cuadrados');
+        $crud->display_as('terreno_m2','Terreno en metros cuadrados');
+        $crud->display_as('direccion_calle','Calle');
+        $crud->display_as('direccion_numero','Numero');
+        $crud->display_as('direccion_colonia','Colonia');
+        $crud->display_as('direccion_municipio','Municipio');
+        $crud->display_as('direccion_estado','Estado');
+        $crud->display_as('direccion_calle','Calle');
+        $crud->display_as('direccion_codigo_postal','Codigo Postal');
+        $crud->display_as('direccion_pais','Pais');
+        $crud->display_as('direccion_latitud','Latitud');
+        $crud->display_as('direccion_longitud','Longitud');
+        $crud->display_as('espacio_autos','Espacio para Autos');
+        $crud->display_as('contacto_telefono','Telefono');
+        $crud->display_as('contacto_email','Email');
         $crud->field_type('idrancho', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
         //$crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
