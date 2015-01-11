@@ -50,6 +50,10 @@ function index(){
         $crud->display_as('espacio_autos','Espacio para Autos');
         $crud->display_as('contacto_telefono','Telefono');
         $crud->display_as('contacto_email','Email');
+
+        $crud->set_rules('banos','Baños','integer');
+
+        
         //$crud->field_type('primer_rama','enum',array('femenil','varonil'));
         $crud->field_type('idcasa', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
