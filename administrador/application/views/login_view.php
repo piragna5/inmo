@@ -1,19 +1,33 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
  <head>
    <title>Login</title>
+   <!-- Custom styles for the project -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/prop_custom.css">
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <!-- Font Awesome CDN -->
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
  </head>
- <body>
-   <h1>Inicio de sesi&oacute;n</h1>
-   <?php echo validation_errors(); ?>
-   <?php echo form_open('verifylogin'); ?>
-     <label for="username">Username:</label>
-     <input type="text" size="20" id="username" name="username"/>
-     <br/>
-     <label for="password">Password:</label>
-     <input type="password" size="20" id="password" name="password"/>
-     <br/>
-     <input type="submit" value="Login"/>
-   </form>
+ <body class="login">
+  <div class="container">
+    <div class="form-signin">
+     <h2 class="form-heading text-center">Inicio de sesi&oacute;n</h2>
+      <?php echo validation_errors(); ?>
+      <?php echo form_open('verifylogin'); ?>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
+        <input type="text" class="form-control" size="20" placeholder="Usuario" id="username" name="username" required autofocus >
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-unlock"></i></span>
+        <input type="password" class="form-control" size="20" placeholder="Password" id="password" name="password" required >
+      </div>
+      <br />
+      <button class="btn btn-lg btn-block btn-login" type="submit" value="Login">Ingresar <i class="fa fa-chevron-right"></i></button>
+     </form>
+     </div><!-- END form-signin -->
+   </div><!-- END container -->
  </body>
 </html>
