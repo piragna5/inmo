@@ -1,0 +1,32 @@
+/*
+ * Project: Prop Inmobiliaria
+ * Author: Alonso Vázquez
+ * Date: 01/01/2015
+ * Description: Custom Style sheets for the project 'Prop Inmobiliaria'
+ * contains all that is needed for all the views, pages, etc.
+ */
+ html, body, .container-fluid {
+ 	height: 100%;
+ }
+
+.row {
+	height: 100%;
+}
+
+.col-md-2 {
+	background-color: #63ade4;
+	border-right: 1px solid #0069cc;
+	height: 100%;
+}
+
+.col-md-2 ul li a {
+	color: #fff;
+}
+
+.col-md-2 ul li a:hover {
+	background-color: #0069cc;
+}
+
+.flexigrid {
+	margin-top: 30px;
+}
