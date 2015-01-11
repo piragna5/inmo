@@ -52,6 +52,16 @@ function index(){
         $crud->display_as('contacto_email','Email');
 
         $crud->set_rules('banos','Baños','integer');
+        $crud->set_rules('construccion_m2','Construccion en metros cuadrados','integer');
+        $crud->set_rules('terreno_m2','Terreno en metros cuadrados','integer');
+        $crud->set_rules('precio','Precio','numeric');
+        $crud->set_rules('recamaras','Recamaras','integer');
+        $crud->set_rules('patios','Patios','integer');
+        $crud->set_rules('espacio_autos','Espacio para Autos','integer');
+        $crud->set_rules('accesos','Accesos','integer');
+        $crud->set_rules('banos','Baños','integer');
+        $crud->set_rules('contacto_telefono','Telefono','integer');
+        $crud->set_rules('direccion_codigo_postal','Codigo Postal','integer');
 
         
         //$crud->field_type('primer_rama','enum',array('femenil','varonil'));
@@ -92,6 +102,11 @@ function terrenos(){
         $crud->display_as('direccion_longitud','Longitud');
         $crud->display_as('contacto_telefono','Telefono');
         $crud->display_as('contacto_email','Email');
+        
+        $crud->set_rules('terreno_m2','Terreno en metros cuadrados','integer');
+        $crud->set_rules('precio','Precio','numeric');
+        $crud->set_rules('direccion_codigo_postal','Codigo Postal','integer');
+        $crud->display_as('contacto_telefono','Telefono');
         $crud->field_type('idterrenos', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
         //$crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
@@ -132,6 +147,15 @@ function departamentos(){
         $crud->display_as('espacio_autos','Espacio para Autos');
         $crud->display_as('contacto_telefono','Telefono');
         $crud->display_as('contacto_email','Email');
+        
+        $crud->set_rules('construccion_m2','Construccion en metros cuadrados','integer');
+        $crud->set_rules('terreno_m2','Terreno en metros cuadrados','integer');
+        $crud->set_rules('precio','Precio','numeric');
+        $crud->set_rules('banos','Baños','integer');
+        $crud->set_rules('recamaras','Recamaras','integer');
+        $crud->set_rules('espacio_autos','Espacio para Autos','integer');
+        $crud->set_rules('direccion_codigo_postal','Codigo Postal','integer');
+        $crud->set_rules('contacto_telefono','Telefono','integer');
         $crud->field_type('iddepartamentos', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
         $crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
@@ -156,6 +180,7 @@ function bodegas(){
             'direccion_municipio','direccion_estado','recamaras','banos','precio',
             'agua','drenaje','luz','contacto_telefono','descripcion');
         $crud->display_as('banos','Baños');
+        $crud->display_as('altura_m','Altura en metros');
         $crud->display_as('venta_renta','Venta o Renta');
         $crud->display_as('construccion_m2','Construccion en metros cuadrados');
         $crud->display_as('terreno_m2','Terreno en metros cuadrados');
@@ -175,6 +200,13 @@ function bodegas(){
         $crud->display_as('ideal','Ideal para');
         $crud->display_as('patio_maniobras','Patio de Maniobras');
         $crud->display_as('montacarga','Zona de Montacargas');
+        
+        $crud->set_rules('construccion_m2','Construccion en metros cuadrados','integer');
+        $crud->set_rules('terreno_m2','Terreno en metros cuadrados','integer');
+        $crud->set_rules('precio','Precio','numeric');
+        $crud->set_rules('direccion_codigo_postal','Codigo Postal','integer');
+        $crud->set_rules('banos','Baños','integer');
+        $crud->set_rules('contacto_telefono','Telefono','integer');
         $crud->field_type('idbodega', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
         //$crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
@@ -217,6 +249,15 @@ function oficinas(){
         $crud->display_as('contacto_email','Email');
         $crud->display_as('sala_juntas','Sala de Juntas');
         $crud->display_as('numero_usuarios','Numero de Usuarios');
+        
+        $crud->set_rules('construccion_m2','Construccion en metros cuadrados','integer');
+        $crud->set_rules('terreno_m2','Terreno en metros cuadrados','integer');
+        $crud->set_rules('precio','Precio','numeric');
+        $crud->set_rules('banos','Baños','integer');
+        $crud->set_rules('direccion_codigo_postal','Codigo Postal','integer');
+        $crud->set_rules('espacio_autos','Espacio para Autos','integer');
+        $crud->set_rules('contacto_telefono','Telefono','integer');
+        $crud->set_rules('numero_usuarios','Numero de Usuarios','integer');
         $crud->field_type('idoficina', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
         //$crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
@@ -257,6 +298,14 @@ function locales(){
         $crud->display_as('espacio_autos','Espacio para Autos');
         $crud->display_as('contacto_telefono','Telefono');
         $crud->display_as('contacto_email','Email');
+        
+        $crud->set_rules('construccion_m2','Construccion en metros cuadrados','integer');
+        $crud->set_rules('terreno_m2','Terreno en metros cuadrados','integer');
+        $crud->set_rules('precio','Precio','numeric');
+        $crud->set_rules('banos','Baños','integer');
+        $crud->set_rules('direccion_codigo_postal','Codigo Postal','integer');
+        $crud->set_rules('espacio_autos','Espacio para Autos','integer');
+        $crud->set_rules('contacto_telefono','Telefono','integer');
         $crud->field_type('idlocal', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
         $crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
@@ -298,6 +347,14 @@ function nave_industrial(){
         $crud->display_as('contacto_telefono','Telefono');
         $crud->display_as('contacto_email','Email');
         $crud->display_as('patio_maniobras','Patio de Maniobras');
+        
+        $crud->set_rules('construccion_m2','Construccion en metros cuadrados','integer');
+        $crud->set_rules('terreno_m2','Terreno en metros cuadrados','integer');
+        $crud->set_rules('precio','Precio','numeric');
+        $crud->set_rules('banos','Baños','integer');
+        $crud->set_rules('altura','Altura','integer');
+        $crud->set_rules('direccion_codigo_postal','Codigo Postal','integer');
+        $crud->set_rules('contacto_telefono','Telefono','integer');
         $crud->field_type('idnave_industrial', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
         $crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
@@ -338,6 +395,14 @@ function rancho(){
         $crud->display_as('espacio_autos','Espacio para Autos');
         $crud->display_as('contacto_telefono','Telefono');
         $crud->display_as('contacto_email','Email');
+        
+        $crud->set_rules('construccion_m2','Construccion en metros cuadrados','integer');
+        $crud->set_rules('terreno_m2','Terreno en metros cuadrados','integer');
+        $crud->set_rules('precio','Precio','numeric');
+        $crud->set_rules('banos','Baños','integer');
+        $crud->set_rules('direccion_codigo_postal','Codigo Postal','integer');
+        $crud->set_rules('recamaras','Recamaras','integer');
+        $crud->set_rules('contacto_telefono','Telefono','integer');
         $crud->field_type('idrancho', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
         //$crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
