@@ -33,6 +33,7 @@
 		<div class="row">
 		<div class="col-md-2">
 	        <ul class="nav nav-pills nav-stacked">
+	        	<a href="#"><img src="<?php echo base_url(); ?>assets/images/propLogo.png" alt="Prop Logo" class="brand-logo"></a>
 	            <li><a href="<?php echo site_url('admin/')?>"><i class="fa fa-home"></i> Casas</a></li>
 	            <li><a href="<?php echo site_url('admin/terrenos')?>"><i class="fa fa-tree"></i> Terrenos</a></li>
 	            <li><a href="<?php echo site_url('admin/departamentos')?>"><i class="fa fa-building"></i> Departamentos</a></li>
