@@ -2,61 +2,54 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-
+	<title>Prop: Administraci&oacute;n</title>
+	<!-- Custom styles for the project -->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/prop_custom.css">
+	<!-- Latest compiled and minified Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<!-- Font Awesome CDN -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascrpt">
-    $("#save-and-go-back-button").keyup(function(){
-       alert("there is a keyup");
-    });
-</script>
+	<script type="text/javascrpt">
+	    $("#save-and-go-back-button").keyup(function(){
+	       alert("there is a keyup");
+	    });
+	</script>
 
-<?php 
-foreach($css_files as $file): ?>
-	<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
-<?php endforeach; ?>
-<?php foreach($js_files as $file): ?>
-	<script src="<?php echo $file; ?>"></script>
-<?php endforeach; ?>
-
-<style type='text/css'>
-body
-{
-	font-family: Arial;
-	font-size: 14px;
-}
-a {
-    color: blue;
-    text-decoration: none;
-    font-size: 14px;
-}
-a:hover
-{
-	text-decoration: underline;
-}
-</style>
-
-
+	<!-- Load all the style sheets -->
+	<?php 
+	foreach($css_files as $file): ?>
+		<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+	<?php endforeach; ?>
+	<!-- Load all the JavaScript files -->
+	<?php foreach($js_files as $file): ?>
+		<script src="<?php echo $file; ?>"></script>
+	<?php endforeach; ?>
+	<!-- Latest compiled and minified Bootstrap JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+	<div class="container-fluid">
+		<div class="row">
+		<div class="col-md-2">
+	        <ul class="nav nav-pills nav-stacked">
+	            <li><a href="<?php echo site_url('admin/')?>"><i class="fa fa-home"></i> Casas</a></li>
+	            <li><a href="<?php echo site_url('admin/terrenos')?>"><i class="fa fa-tree"></i> Terrenos</a></li>
+	            <li><a href="<?php echo site_url('admin/departamentos')?>"><i class="fa fa-building"></i> Departamentos</a></li>
+	            <li><a href="<?php echo site_url('admin/bodegas')?>"><i class="fa fa-truck"></i> Bodegas</a></li>
+	            <li><a href="<?php echo site_url('admin/oficinas')?>"><i class="fa fa-briefcase"></i> Oficinas</a></li>
+	            <li><a href="<?php echo site_url('admin/locales')?>"><i class="fa fa-institution"></i> Locales</a></li>
+	            <li><a href="<?php echo site_url('admin/nave_industrial')?>"><i class="fa fa-gears"></i> Naves Industriales</a></li>
+	            <li><a href="<?php echo site_url('admin/rancho')?>"><i class="fa fa-bug"></i> Ranchos</a></li>
+	            <li><a href="<?php echo site_url('home/logout')?>"><i class="fa fa-power-off"></i> Salir</a></li>
+	        </ul>
+	    </div><!-- END col-md-2 -->
 
+		<div class="col-md-10">
+			<?php echo $output; ?>
+		</div><!-- END col-md-10 -->
 
-	 <div>
-		<a href='<?php echo site_url('admin/')?>'>Casas</a> |
-		<a href='<?php echo site_url('admin/terrenos')?>'>Terrenos</a> |
-		<a href='<?php echo site_url('admin/departamentos')?>'>Departamentos</a> |
-		<a href='<?php echo site_url('admin/bodegas')?>'>Bodegas</a> | 
-		<a href='<?php echo site_url('admin/oficinas')?>'>Oficinas</a> |		 
-		<a href='<?php echo site_url('admin/locales')?>'>Locales</a> | 
-		<a href='<?php echo site_url('admin/nave_industrial')?>'>Naves Industriales</a> | 
-		<a href='<?php echo site_url('admin/rancho')?>'>Ranchos</a> | 
-        <a href='<?php echo site_url('home/logout')?>'>Salir</a> |
-				<!--<a href='<?php echo site_url('examples/film_management_twitter_bootstrap')?>'>Twitter Bootstrap Theme [BETA]</a> | 
-		<a href='<?php echo site_url('examples/multigrids')?>'>Multigrid [BETA]</a> -->
-		
-	</div> 
-	<div style='height:20px;'></div>  
-    <div>
-		<?php echo $output; ?>
-    </div>
+    	</div><!-- END row -->
+	</div><!-- END container-fluid -->
 </body>
 </html>
