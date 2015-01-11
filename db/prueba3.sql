@@ -66,7 +66,7 @@ CREATE TABLE `bodegas` (
 
 CREATE TABLE `casas` (
   `idcasa` varchar(20) NOT NULL,
-  `venta_renta` varchar(45) default NULL,
+  `venta_renta` ENUM('Venta', 'Renta') default 'Venta',
   `terreno_m2` varchar(45) default NULL,
   `construccion_m2` varchar(45) default NULL,
   `descripcion` varchar(45) default NULL,
