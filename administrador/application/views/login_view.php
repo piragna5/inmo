@@ -16,7 +16,7 @@
         <h2 class="form-heading text-center">Inicio de sesi&oacute;n</h2>
         <?php echo validation_errors(); ?>
         <?php echo form_open('verifylogin'); ?>
-        <div class="input-group">
+      <div class="input-group">
           <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
           <input type="text" class="form-control" size="20" placeholder="Usuario" id="username" name="username" required autofocus >
         </div>
@@ -30,3 +30,4 @@
    </div><!-- END container -->
  </body>
 </html>
+

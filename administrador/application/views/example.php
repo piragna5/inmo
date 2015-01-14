@@ -42,7 +42,10 @@
 	            <li><a href="<?php echo site_url('admin/locales')?>"><i class="fa fa-institution"></i> Locales</a></li>
 	            <li><a href="<?php echo site_url('admin/nave_industrial')?>"><i class="fa fa-gears"></i> Naves Industriales</a></li>
 	            <li><a href="<?php echo site_url('admin/rancho')?>"><i class="fa fa-bug"></i> Ranchos</a></li>
+	            <li><a href="<?php echo site_url('admin/usuarios')?>"><i class="fa fa-user"></i> Usuarios</a></li>
 	            <li><a href="<?php echo site_url('home/logout')?>"><i class="fa fa-power-off"></i> Salir</a></li>
+
+
 	        </ul>
 	    </div><!-- END col-md-2 -->
 
