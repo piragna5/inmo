@@ -410,5 +410,15 @@ CREATE TABLE `usuarios` (
 -- 
 -- Volcar la base de datos para la tabla `usuarios`
 -- 
-
 INSERT INTO `usuarios` VALUES (1, 'piri', '827ccb0eea8a706c4c34a16891f84e7b');
+
+CREATE TABLE `usuarios_amc` (
+  `id` varchar(20) NOT NULL,
+  `id_dispositivo` varchar(20) NOT NULL,
+  `plataforma` varchar(10) NOT NULL,
+  `version_so` varchar(10) NOT NULL,
+  `is_tablet` varchar(10) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+
+
