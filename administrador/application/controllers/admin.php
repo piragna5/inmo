@@ -28,12 +28,13 @@ function index(){
 	$crud = new grocery_CRUD();
         $crud->set_table('casas');
         $crud->set_subject('Casa');
-        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero');
+        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero','destacada');
         //$crud->fields('precio','rama','fecha_inicio','fecha_termino', 'puntos_por_ganar', 'puntos_por_perder');
         $crud->required_fields('venta_renta','terreno_m2','construccion_m2','direccion_numero','direccion_calle','direccion_colonia',
             'direccion_municipio','direccion_estado','recamaras','banos','precio',
             'agua','drenaje','luz','contacto_telefono','descripcion');
         $crud->display_as('banos','Baños');
+        $crud->display_as('destacada','Destacada');
         $crud->display_as('venta_renta','Venta o Renta');
         $crud->display_as('construccion_m2','Construccion en metros cuadrados');
         $crud->display_as('terreno_m2','Terreno en metros cuadrados');
@@ -67,6 +68,9 @@ function index(){
         $crud->field_type('idcasa', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
         $crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
+       
+        //$crud->callback_after_insert(array($this, 'insertarLatLon'));
+
         $output = $crud->render();
         $this->_example_output($output);
 }
@@ -77,17 +81,31 @@ else
    }
 }
 
+function insertarLatLon($post_array,$primary_key)
+{
+    $user_logs_insert = array(
+        "user_id" => $primary_key,
+        "created" => date('Y-m-d H:i:s'),
+        "last_update" => date('Y-m-d H:i:s')
+    );
+ 
+    $this->db->insert('user_logs',$user_logs_insert);
+ 
+    return true;
+}
+
 function terrenos(){
     if($this->session->userdata('logged_in'))
    {
     $crud = new grocery_CRUD();
         $crud->set_table('terrenos');
         $crud->set_subject('Terreno');
-        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero');
+        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero','destacada');
         $crud->required_fields('venta_renta','terreno_m2','direccion_numero','direccion_calle','direccion_colonia',
             'direccion_municipio','direccion_estado','precio',
             'agua','drenaje','luz','contacto_telefono','descripcion');
         $crud->display_as('venta_renta','Venta o Renta');
+        $crud->display_as('destacada','Destacado');
         $crud->display_as('terreno_m2','Terreno en metros cuadrados');
         $crud->display_as('direccion_calle','Calle');
         $crud->display_as('direccion_numero','Numero');
@@ -110,7 +128,8 @@ function terrenos(){
         $crud->field_type('direccion_longitud', 'hidden');
         $crud->field_type('idterrenos', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
-        //$crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
+
+        $crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
         $output = $crud->render();
         $this->_example_output($output);
 }
@@ -127,11 +146,12 @@ function departamentos(){
     $crud = new grocery_CRUD();
         $crud->set_table('departamentos');
         $crud->set_subject('Departamento');
-        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero');
+        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero','destacada');
         $crud->required_fields('venta_renta','terreno_m2','construccion_m2','direccion_numero','direccion_calle','direccion_colonia',
             'direccion_municipio','direccion_estado','recamaras','banos','precio',
             'agua','drenaje','luz','contacto_telefono','descripcion');
         $crud->display_as('banos','Baños');
+        $crud->display_as('destacada','Destacado');
         $crud->display_as('venta_renta','Venta o Renta');
         $crud->display_as('construccion_m2','Construccion en metros cuadrados');
         $crud->display_as('terreno_m2','Terreno en metros cuadrados');
@@ -178,11 +198,12 @@ function bodegas(){
     $crud = new grocery_CRUD();
         $crud->set_table('bodegas');
         $crud->set_subject('Bodega');
-        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero');
+        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero','destacada');
         $crud->required_fields('venta_renta','terreno_m2','construccion_m2','direccion_numero','direccion_calle','direccion_colonia',
             'direccion_municipio','direccion_estado','recamaras','banos','precio',
             'agua','drenaje','luz','contacto_telefono','descripcion');
         $crud->display_as('banos','Baños');
+        $crud->display_as('destacada','Destacada');
         $crud->display_as('altura_m','Altura en metros');
         $crud->display_as('venta_renta','Venta o Renta');
         $crud->display_as('construccion_m2','Construccion en metros cuadrados');
@@ -212,6 +233,7 @@ function bodegas(){
         $crud->set_rules('contacto_telefono','Telefono','integer');
         $crud->field_type('direccion_latitud', 'hidden');
         $crud->field_type('direccion_longitud', 'hidden');
+        $crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
         $crud->field_type('idbodega', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
         //$crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
@@ -231,11 +253,12 @@ function oficinas(){
     $crud = new grocery_CRUD();
         $crud->set_table('oficinas');
         $crud->set_subject('Oficina');
-        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero');
+        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero','destacada');
         $crud->required_fields('venta_renta','terreno_m2','construccion_m2','direccion_numero','direccion_calle','direccion_colonia',
             'direccion_municipio','direccion_estado','recamaras','banos','precio',
             'agua','drenaje','luz','contacto_telefono','descripcion');
         $crud->display_as('banos','Baños');
+        $crud->display_as('destacada','Destacada');
         $crud->display_as('venta_renta','Venta o Renta');
         $crud->display_as('construccion_m2','Construccion en metros cuadrados');
         $crud->display_as('terreno_m2','Terreno en metros cuadrados');
@@ -265,6 +288,7 @@ function oficinas(){
         $crud->set_rules('numero_usuarios','Numero de Usuarios','integer');
         $crud->field_type('direccion_latitud', 'hidden');
         $crud->field_type('direccion_longitud', 'hidden');
+        $crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
         $crud->field_type('idoficina', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
         //$crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
@@ -287,8 +311,9 @@ function locales(){
         $crud->required_fields('venta_renta','terreno_m2','construccion_m2','direccion_numero','direccion_calle','direccion_colonia',
             'direccion_municipio','direccion_estado','recamaras','banos','precio',
             'agua','drenaje','luz','contacto_telefono','descripcion');
-        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero');
+        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero','destacada');
         $crud->display_as('banos','Baños');
+        $crud->display_as('destacada','Destacado');
         $crud->display_as('venta_renta','Venta o Renta');
         $crud->display_as('construccion_m2','Construccion en metros cuadrados');
         $crud->display_as('terreno_m2','Terreno en metros cuadrados');
@@ -334,11 +359,12 @@ function nave_industrial(){
     $crud = new grocery_CRUD();
         $crud->set_table('nave_industrial');
         $crud->set_subject('Nave Industrial');
-        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero');
+        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero','destacada');
         $crud->required_fields('venta_renta','terreno_m2','construccion_m2','direccion_numero','direccion_calle','direccion_colonia',
             'direccion_municipio','direccion_estado','recamaras','banos','precio',
             'agua','drenaje','luz','contacto_telefono','descripcion');
         $crud->display_as('banos','Baños');
+        $crud->display_as('destacada','Destacada');
         $crud->display_as('venta_renta','Venta o Renta');
         $crud->display_as('construccion_m2','Construccion en metros cuadrados');
         $crud->display_as('terreno_m2','Terreno en metros cuadrados');
@@ -385,11 +411,12 @@ function rancho(){
     $crud = new grocery_CRUD();
         $crud->set_table('rancho');
         $crud->set_subject('Rancho');
-        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero');
+        $crud->columns('precio','terreno_m2','direccion_colonia','direccion_calle','direccion_numero','destacada');
         $crud->required_fields('venta_renta','terreno_m2','construccion_m2','direccion_numero','direccion_calle','direccion_colonia',
             'direccion_municipio','direccion_estado','recamaras','banos','precio',
             'agua','drenaje','luz','contacto_telefono','descripcion');
         $crud->display_as('banos','Baños');
+        $crud->display_as('destacada','Destacado');
         $crud->display_as('venta_renta','Venta o Renta');
         $crud->display_as('construccion_m2','Construccion en metros cuadrados');
         $crud->display_as('terreno_m2','Terreno en metros cuadrados');
@@ -418,7 +445,7 @@ function rancho(){
         $crud->field_type('direccion_longitud', 'hidden');
         $crud->field_type('idrancho', 'hidden', $this->getRandomCode());
         $crud->set_language("spanish");
-        //$crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
+        $crud->add_action('Equippos', base_url('assets/grocery_crud/themes/flexigrid/css/images/add_image.png'), 'admin/imageUpload');
         $output = $crud->render();
         $this->_example_output($output);
 }
@@ -454,21 +481,20 @@ else
 }
 
 function imageUpload($primary_key)
-{
+{ 
     //$crud = new grocery_CRUD();
-    //$crud->field_type('idrancho', 'hidden', $this->getRandomCode());
     $image_crud = new image_CRUD();
-    $image_crud->set_table('images');
-    //If your table have by default the "id" field name as a primary key this line is not required
     $image_crud->set_primary_key_field('id');
     $image_crud->set_url_field('url');
-    $image_crud->set_image_path('assets/uploads');
-    $image_crud->set_title_field('title');
-    //$image_crud->set_ordering_field('priority');
-    $image_crud->set_relation_field('idcasa');
+    $image_crud->set_table('images')
+        ->set_image_path('assets/uploads'); 
+    $image_crud->set_relation_field('idcasa'); 
+    //$crud->field_type('id','hidden', $this->getRandomCode());  
     $output = $image_crud->render();
- 
-    $this->_example_output($output);
+    $this->_example_output($output);      
+
+
+
 }
 
 

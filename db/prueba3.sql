@@ -28,6 +28,7 @@ CREATE TABLE `bodegas` (
   `construccion_m2` varchar(45) default NULL,
   `descripcion` varchar(45) default NULL,
   `precio` varchar(45) default NULL,
+  `destacada` ENUM('Si', 'No') default 'No',
   `altura_m` varchar(45) default NULL,
   `direccion_calle` varchar(45) default NULL,
   `direccion_numero` varchar(45) default NULL,
@@ -71,6 +72,7 @@ CREATE TABLE `casas` (
   `construccion_m2` varchar(45) default NULL,
   `descripcion` varchar(45) default NULL,
   `precio` varchar(10) default NULL,
+  `destacada` ENUM('Si', 'No') default 'No',
   `direccion_calle` varchar(45) default NULL,
   `direccion_numero` int(11) default NULL,
   `direccion_colonia` varchar(45) default NULL,
@@ -133,6 +135,7 @@ CREATE TABLE `departamentos` (
   `recamaras` varchar(45) default NULL,
   `banos` varchar(45) default NULL,
   `espacio_autos` varchar(45) default NULL,
+  `destacada` ENUM('Si', 'No') default 'No',
   `direccion_calle` varchar(45) default NULL,
   `direccion_numero` varchar(45) default NULL,
   `direccion_municipio` varchar(45) default NULL,
@@ -170,9 +173,10 @@ CREATE TABLE `departamentos` (
 -- 
 
 CREATE TABLE `images` (
-  `id` varchar(20) NOT NULL,
+  `id` int(11) NOT NULL auto_increment,
   `idcasa` varchar(20) NOT NULL,
-  `url` varchar(200) NOT NULL
+  `url` varchar(200) NOT NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- 
@@ -195,6 +199,7 @@ CREATE TABLE `locales` (
   `precio` varchar(45) default NULL,
   `espacio_autos` varchar(45) default NULL,
   `banos` varchar(45) default NULL,
+  `destacada` ENUM('Si', 'No') default 'No',
   `direccion_calle` varchar(45) default NULL,
   `direccion_numero` varchar(45) default NULL,
   `direccion_municipio` varchar(45) default NULL,
@@ -234,6 +239,7 @@ CREATE TABLE `nave_industrial` (
   `construccion_m2` varchar(45) default NULL,
   `descripcion` varchar(45) default NULL,
   `precio` varchar(45) default NULL,
+  `destacada` ENUM('Si', 'No') default 'No',
   `direccion_calle` varchar(45) default NULL,
   `direccion_numero` varchar(45) default NULL,
   `direccion_municipio` varchar(45) default NULL,
@@ -276,6 +282,7 @@ CREATE TABLE `oficinas` (
   `construccion_m2` varchar(45) default NULL,
   `descripcion` varchar(45) default NULL,
   `precio` varchar(45) default NULL,
+  `destacada` ENUM('Si', 'No') default 'No',
   `direccion_calle` varchar(45) default NULL,
   `direccion_numero` varchar(45) default NULL,
   `direccion_municipio` varchar(45) default NULL,
@@ -319,9 +326,10 @@ CREATE TABLE `rancho` (
   `idrancho` varchar(20) NOT NULL,
   `venta_renta` ENUM('Venta', 'Renta') default 'Venta',
   `terreno_m2` varchar(45) default NULL,
-  `contruccion_m2` varchar(45) default NULL,
+  `construccion_m2` varchar(45) default NULL,
   `descripcion` varchar(45) default NULL,
   `precio` varchar(45) default NULL,
+  `destacada` ENUM('Si', 'No') default 'No',
   `direccion_calle` varchar(45) default NULL,
   `direccion_numero` varchar(45) default NULL,
   `direccion_municipio` varchar(45) default NULL,
@@ -370,6 +378,7 @@ CREATE TABLE `terrenos` (
   `terreno_m2` varchar(45) default NULL,
   `descripcion` varchar(45) default NULL,
   `precio` varchar(45) default NULL,
+  `destacada` ENUM('Si', 'No') default 'No',
   `direccion_calle` varchar(45) default NULL,
   `direccion_numero` varchar(45) default NULL,
   `direccion_municipio` varchar(45) default NULL,
